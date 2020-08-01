@@ -1,1 +1,16 @@
-index
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<img src = '{% static "자연.jpg" %}' alt='우울그림' width = '1500px' height=" 400px" style="display: block; margin: 0px auto;">
+
+
+<div class="card" style="width: 18rem;">
+    <img src="{% static '좋은 음식.png' %}" class="card-img-top" alt="음식">
+    <div class="card-body">
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+
+  {% endblock content %}
