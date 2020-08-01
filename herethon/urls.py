@@ -4,7 +4,7 @@ import hereapp.views
 from django.conf import settings
 
 urlpatterns = [
-    path('admin/', admin.site.urls),git 
+    path('admin/', admin.site.urls),
     path('', hereapp.views.index,name='home'),
     path('here/', include('hereapp.urls')),
     path('accounts/', include('accounts.urls'))
