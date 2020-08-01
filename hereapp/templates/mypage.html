@@ -1,7 +1,50 @@
-결과를 보낼 이메일 주소 등록
-<a href="{% url 'addemail' %}">이메일 추가하기</a><br>
-{% for email in emails.all %}
-    <p>이름 {{email.name}}</p>
-    <p>이메일 {{email.email}}</p><br>
-    <br><br><br>
-{% endfor %}
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    body {
+        text-align: center;
+    }
+    h2 {
+        margin: 50px;
+    }
+    a:hover {
+        text-decoration: none;
+    }
+    .addemail {
+        margin: 30px;
+    }
+    .emails {
+        margin: 50px;
+    }
+    .email {
+        margin: 30px auto;
+        border: 1px solid black;
+        width: 400px;
+        padding: 20px;
+    }
+    .delete-email {
+        display: inline-block;
+        position: relative;
+        margin-top: 10px;
+    }
+</style>
+
+<body>
+    <h2>결과를 보낼 이메일 주소 등록</h2>
+    <div class="addemail">
+        <a href="{% url 'addemail' %}">이메일 추가하기</a>
+    </div>
+    <div class="emails">
+        {% for email in emails.all %}
+            <div class="email">
+                <div>
+                    <span>이름: {{email.name}}</span><br>
+                    <span>이메일: {{email.email}}</span>
+                </div>
+                <div class="delete-email"><a href="{% url 'deleteemail' email.id %}">삭제하기</a></div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+{% endblock content %}
+

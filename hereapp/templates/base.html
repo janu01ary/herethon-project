@@ -28,13 +28,14 @@
             <li class="nav-items">
               <a class="nav-link" href="#">우울증 자가진단</a>
             </li>
+            {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link" href="#">진단결과</a>
-        
+              <a class="nav-link" href="{% url 'showreulsts' %}">진단결과</a>
             </li>
+            {% endif %}
           </ul>
           <a class="nav-item">
-            <a class="nav-link" href="#">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;mypage</a>
+            <a class="nav-link" href="{% url 'mypage' %}">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;mypage</a>
 
             <li class="nav-items">
               <a class="nav-link" href="#">로그인</a>
