@@ -7,5 +7,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),git 
     path('', hereapp.views.index,name='home'),
     path('here/', include('hereapp.urls')),
-    path('accounts/', include('accounts.urls'))python manage.py runserver
+    path('accounts/', include('accounts.urls'))
 ]
