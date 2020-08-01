@@ -20,5 +20,5 @@ import hereapp.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', hereapp.views.index),
-    path('here/', include('hereapp.urls'))
+    path('here/', include('hereapp.urls')),
 ]
