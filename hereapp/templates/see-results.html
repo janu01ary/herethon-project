@@ -1,1 +1,8 @@
 결과들을 볼 페이지
+
+{% for result in results.all %}
+    <p>날짜 {{result.date}}</p>
+    <p>점수 {{result.score}}</p>
+    <p>구분 {{result.division}}</p>
+    <br><br><br>
+{% endfor %}

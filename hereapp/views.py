@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
-from .models import Email
+from .models import Email, Result
 
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
 
 def showresults(request):
-    return render(request, 'see-results.html')
+    results = Result.objects.all()
+    return render(request, 'see-results.html', {'results':results})
 
 def addemail(request):
     if request.method == 'POST':
