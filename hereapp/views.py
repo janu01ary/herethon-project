@@ -12,8 +12,8 @@ def showresults(request):
 
 def sendallresults(request):
     results = Result.objects.all()
-    message = "resulttttttttttttttttttttttttttest"
-    subject = "tttttttttttttttttitleeeeeeee"
+    message = results
+    subject = "결과들을 전송합니다."
     emails = Email.objects.all()
     email = emails.first()
     for email in emails:
