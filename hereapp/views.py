@@ -6,6 +6,12 @@ from .models import Email, Result
 def index(request):
     return render(request, 'index.html')
 
+def test(request):
+    return render(request, 'test.html')
+
+def result(request):
+    return render(request, 'result.html')
+  
 def showresults(request):
     results = Result.objects.all()
     return render(request, 'see-results.html', {'results':results})
@@ -42,3 +48,4 @@ def deleteemail(request, pk):
 def mypage(request):
     emails = Email.objects.all()
     return render(request, 'mypage.html', {'emails':emails})
+
