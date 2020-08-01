@@ -6,9 +6,6 @@ from .models import Email, Result
 def index(request):
     return render(request, 'index.html')
 
-def new(request):
-    return render(request, 'new.html')
-
 def showresults(request):
     results = Result.objects.all()
     return render(request, 'see-results.html', {'results':results})
