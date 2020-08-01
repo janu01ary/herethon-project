@@ -1,6 +1,43 @@
-<form method="POST">
-    {% csrf_token %}
-    name: <input type="text" name="name"><br>
-    email: <input type="email" name="email"><br>
-    <input type="submit">
-</form>
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    body {
+        text-align: center;
+    }
+    h2 {
+        margin: 50px;
+    }
+    hr {
+        margin: 0 15%;
+    }
+    table {
+        margin: 30px auto;
+        margin-top: 50px;
+    }
+    td {
+        padding: 10px;
+    }
+</style>
+<body>
+    <div>
+        <h2>이메일 추가하기</h2>
+        <hr>
+        <div>
+            <form method="POST">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td>이름</td>
+                        <td><input type="text" name="name"></td>
+                    </tr>
+                    <tr>
+                        <td>이메일</td>
+                        <td><input type="email" name="email"></td>
+                    </tr>
+                </table>
+                <input type="submit">
+            </form>
+        </div>
+    </div>
+</body>
+{% endblock content %}

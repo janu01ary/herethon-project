@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="test.css">
+    <!-- 수정 -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+    
+    <script type="text/javascript">
+        window.onload=function(){
+            document.getElementById('btn').onclick=function() {
+            console.log("###");
+            var score = 0;
+            var division = "";
+            console.log(score);
+            
+            var span = document.getElementById("rradio");
+            var inputs = span.getElementsByTagName("input");
+        
+            for (var i=0; i< inputs.length; i++) {
+                if (inputs[i].checked) {
+                    score = score + parseFloat(inputs[i].value);
+                    console.log(score);
+                }
+            }
+
+           
+
+            //checkedNum.each(function(){
+            //    score+=parseInt($(this).val(),20);
+            //    console.log("score :" , score);
+
+            //});
+
+            $("input[name=sum]").val(score);
+            if (score<25) {
+                division="우울하지 않은 상태";
+            } else if (score<50) {
+                division="가벼운 우울 상태";
+            } else if (score<75) {
+                division="중한 우울 상태";
+            } else {
+                division="심한 우울 상태";
+            }
+            
+            //console.log(score);
+            //console.log("#####");
+
+            location.href="{% url 'result' %}";
+        }
+    }  //end function        
+    </script>
+  
+
+<body>
+    <div class="container">
+        <ul class="cell">
+            <h2 style="line-height: 2em;">🧠 우울증 자가진단 테스트를 시작해봅시다. </h2>
+            <p style="font-weight:bold; color:black; line-height: 1em;"><테스트 전 유의사항></p>
+            <p style="font-size: 14px; line-height: 2em;">* 테스트 문항은 총 20문항이며, 지난 2주 동안의 자신의 상태에 해당하는 것에 답안을 체크해주시면 됩니다.
+            <br>** 문항 별 점수는 [ 전혀 그렇지 않다 - 1점 / 그렇지 않다 - 2점 / 보통이다 - 3점 / 그렇다 - 4점 / 매우 그렇다 - 5점 ] 와 같습니다.</p>
+            <hr>
+            <br>
+            <div class="form_context" id = "rradio">
+                
+                <h4>[1번]&nbsp; 나는 최근 자주 슬펐다. </h4>
+                <div class="radio">
+                <label><input name="score1" type="radio" value="1"> 전혀 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score1" type="radio" value="2"> 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score1" type="radio" value="3"> 보통이다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score1" type="radio" value="4"> 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score1" type="radio" value="5"> 매우 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <br>
+                <h4>[2번]&nbsp; 나는 앞날에 대해 기대가 되지 않는다. </h4>
+                <div class="radio">
+                <label><input name="score2" type="radio" value="1"> 전혀 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score2" type="radio" value="2"> 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score2" type="radio" value="3"> 보통이다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score2" type="radio" value="4"> 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score2" type="radio" value="5"> 매우 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <br>
+                <h4>[3번]&nbsp; 나는 스스로 실패했다고 생각한다. </h4>
+                <div class="radio">
+                <label><input name="score3" type="radio" value="1"> 전혀 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score3" type="radio" value="2"> 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score3" type="radio" value="3"> 보통이다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score3" type="radio" value="4"> 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score3" type="radio" value="5"> 매우 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <br>
+                <h4>[4번]&nbsp; 나는 요즘 일상생활이 즐겁지 않다. </h4>
+                <div class="radio">
+                <label><input name="score4" type="radio" value="1"> 전혀 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score4" type="radio" value="2"> 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score4" type="radio" value="3"> 보통이다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score4" type="radio" value="4"> 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score4" type="radio" value="5"> 매우 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <br>
+                <h4>[5번]&nbsp; 나는 스스로가 벌을 받고 있는 기분이라고 생각한다. </h4>
+                <div class="radio">
+                <label><input name="score5" type="radio" value="1"> 전혀 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score5" type="radio" value="2"> 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score5" type="radio" value="3"> 보통이다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score5" type="radio" value="4"> 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score5" type="radio" value="5"> 매우 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <br>
+                <h4>[6번]&nbsp; 나는 내 자신에게 실망스러워 화가 난다. </h4>
+                <div class="radio">
+                <label><input name="score6" type="radio" value="1"> 전혀 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score6" type="radio" value="2"> 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score6" type="radio" value="3"> 보통이다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score6" type="radio" value="4"> 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score6" type="radio" value="5"> 매우 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <br>
+                <h4>[7번]&nbsp; 나에게 일어나는 모든 일은 모두 나의 잘못 때문이다. </h4>
+                <div class="radio">
+                <label><input name="score7" type="radio" value="1"> 전혀 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score7" type="radio" value="2"> 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score7" type="radio" value="3"> 보통이다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score7" type="radio" value="4"> 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score7" type="radio" value="5"> 매우 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <br>
+                <h4>[8번]&nbsp; 나는 스스로 죽는 생각을 자주 한다. </h4>
+                <div class="radio">
+                <label><input name="score8" type="radio" value="1"> 전혀 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score8" type="radio" value="2"> 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score8" type="radio" value="3"> 보통이다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score8" type="radio" value="4"> 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score8" type="radio" value="5"> 매우 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <br>
+                <h4>[9번]&nbsp; 나는 죄책감에 자주 휩싸인다. </h4>
+                <div class="radio">
+                <label><input name="score9" type="radio" value="1"> 전혀 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score9" type="radio" value="2"> 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score9" type="radio" value="3"> 보통이다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score9" type="radio" value="4"> 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score9" type="radio" value="5"> 매우 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <br>
+                <h4>[10번]&nbsp; 나는 별 거 아닌 일에도 자주 운다. </h4>
+                <div class="radio">
+                <label><input name="score10" type="radio" value="1"> 전혀 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score10" type="radio" value="2"> 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score10" type="radio" value="3"> 보통이다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score10" type="radio" value="4"> 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score10" type="radio" value="5"> 매우 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <h4>[11번]&nbsp; 나는 별 거 아닌 일에도 짜증을 자주 낸다. </h4>
+                <div class="radio">
+                <label><input name="score11" type="radio"> 전혀 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score11" type="radio"> 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score11" type="radio"> 보통이다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score11" type="radio"> 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score11" type="radio"> 매우 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <br>
+                <h4>[12번]&nbsp; 나는 이전에 비해 결정을 내리는 것에 어려움을 겪고 있다. </h4>
+                <div class="radio">
+                <label><input name="score12" type="radio"> 전혀 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score12" type="radio"> 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score12" type="radio"> 보통이다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score12" type="radio"> 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score12" type="radio"> 매우 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <br>
+                <h4>[13번]&nbsp; 나는 내 모습이 매력적이지 않게 변했다는 생각이 자주 든다. </h4>
+                <div class="radio">
+                <label><input name="score13" type="radio"> 전혀 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score13" type="radio"> 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score13" type="radio"> 보통이다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score13" type="radio"> 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score13" type="radio"> 매우 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <br>
+                <h4>[14번]&nbsp; 나는 이전과 다르게 일찍 잠을 깨며, 잠을 자는 것에 어려움을 겪고 있다. </h4>
+                <div class="radio">
+                <label><input name="score14" type="radio"> 전혀 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score14" type="radio"> 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score14" type="radio"> 보통이다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score14" type="radio"> 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score14" type="radio"> 매우 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <br>
+                <h4>[15번]&nbsp; 나는 스스로가 벌을 받고 있는 기분이라고 생각한다. </h4>
+                <div class="radio">
+                <label><input name="score15" type="radio"> 전혀 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score15" type="radio"> 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score15" type="radio"> 보통이다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score15" type="radio"> 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score15" type="radio"> 매우 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <br>
+                <h4>[16번]&nbsp; 요즘은 식욕이 전혀 없다. </h4>
+                <div class="radio">
+                <label><input name="score16" type="radio"> 전혀 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score16" type="radio"> 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score16" type="radio"> 보통이다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score16" type="radio"> 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score16" type="radio"> 매우 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <br>
+                <h4>[17번]&nbsp; 나는 몸무게가 줄어들고 있는 편이다. </h4>
+                <div class="radio">
+                <label><input name="score17" type="radio"> 전혀 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score17" type="radio"> 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score17" type="radio"> 보통이다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score17" type="radio"> 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score17" type="radio"> 매우 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <br>
+                <h4>[18번]&nbsp; 나는 스스로 죽는 생각을 자주 한다. </h4>
+                <div class="radio">
+                <label><input name="score18" type="radio"> 전혀 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score18" type="radio"> 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score18" type="radio"> 보통이다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score18" type="radio"> 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score18" type="radio"> 매우 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <br>
+                <h4>[19번]&nbsp; 나는 두통, 소화불량, 통증 등 다양한 신체적 어려움을 겪고 있다. </h4>
+                <div class="radio">
+                <label><input name="score19" type="radio"> 전혀 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score19" type="radio"> 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score19" type="radio"> 보통이다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score19" type="radio"> 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score19" type="radio"> 매우 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <br>
+                <h4>[20번]&nbsp; 나는 요즘 성(性)에 대한 관심을 많이 잃었다. </h4>
+                <div class="radio">
+                <label><input name="score20" type="radio"> 전혀 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score20" type="radio"> 그렇지 않다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score20" type="radio"> 보통이다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score20" type="radio"> 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><input name="score20" type="radio"> 매우 그렇다</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+
+
+                <br>
+
+                <button id="btn">"결과 확인하기"</button> 
+ 
+                
+            
+        
+            </div>
+        </ul>
+    </div>
+</body>
+</html>
