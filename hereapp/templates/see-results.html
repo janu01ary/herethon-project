@@ -1,4 +1,4 @@
-결과들을 볼 페이지
+결과들을 볼 페이지<br>
 
 {% for result in results.all %}
     <p>날짜 {{result.date}}</p>
@@ -6,3 +6,5 @@
     <p>구분 {{result.division}}</p>
     <br><br><br>
 {% endfor %}
+
+<a href="{% url 'sendallresults' %}">전체 결과 이메일로 보내기</a>

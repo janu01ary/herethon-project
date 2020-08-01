@@ -2,6 +2,7 @@
 <a href="{% url 'addemail' %}">이메일 추가하기</a><br>
 {% for email in emails.all %}
     <p>이름 {{email.name}}</p>
-    <p>이메일 {{email.email}}</p><br>
-    <br><br><br>
+    <p>이메일 {{email.email}}</p>
+    <a href="{% url 'deleteemail' email.id %}">삭제하기</a>
+    <br><br><br><br>
 {% endfor %}
